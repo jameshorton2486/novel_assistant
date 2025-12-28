@@ -1,0 +1,78 @@
+============================================
+NOVEL ASSISTANT REPOSITORY FIX PACKAGE
+============================================
+
+This package contains all the fixes for your novel_assistant repository.
+
+CONTENTS:
+---------
+  fix-novel-assistant.ps1  - PowerShell script that applies all fixes
+  fixes/                   - Folder containing corrected files
+
+WHAT THIS FIXES:
+----------------
+  ✓ Removes AI_AGENT_TASKS.md (wrong project - Kollect-It content)
+  ✓ Removes .idea/ folder (IDE-specific files)
+  ✓ Fixes README.md (removes 650+ lines of Kollect-It documentation)
+  ✓ Fixes claude_client.py (corrects invalid model name)
+  ✓ Fixes agent_core.py (removes duplicate code)
+  ✓ Adds agent/__init__.py (missing module init)
+  ✓ Adds gui/__init__.py (missing module init)
+  ✓ Updates .gitignore (adds .idea/ exclusion)
+  ✓ Updates .env.example (adds example API keys)
+  ✓ Updates requirements.txt (adds version pins)
+
+HOW TO USE:
+-----------
+
+1. Extract this ZIP file to C:\Users\james\ (or wherever your novel_assistant folder is)
+   
+   After extraction, you should have:
+   C:\Users\james\fixes\
+   C:\Users\james\fix-novel-assistant.ps1
+   C:\Users\james\novel_assistant\  (your existing repo)
+
+2. Open PowerShell and navigate to C:\Users\james\
+   
+   cd C:\Users\james
+
+3. Run the fix script:
+   
+   .\fix-novel-assistant.ps1
+
+4. The script will:
+   - Show you what changes will be made
+   - Ask for confirmation
+   - Delete wrong files
+   - Copy corrected files
+   - Commit changes to git
+   - Optionally push to GitHub
+
+MANUAL ALTERNATIVE:
+-------------------
+If you prefer to apply changes manually:
+
+1. DELETE these files/folders from novel_assistant:
+   - AI_AGENT_TASKS.md
+   - .idea\ (entire folder)
+   - .github\copilot-instructions.md
+   - agent\agent_core.md
+   - examples\sample_workflow.md
+
+2. COPY these files from fixes\ to novel_assistant\:
+   - README.md
+   - .gitignore
+   - .env.example
+   - requirements.txt
+   - agent\__init__.py
+   - agent\agent_core.py
+   - agent\claude_client.py
+   - gui\__init__.py
+
+3. Commit and push:
+   cd novel_assistant
+   git add -A
+   git commit -m "Fix: Remove Kollect-It contamination and add missing files"
+   git push
+
+============================================
