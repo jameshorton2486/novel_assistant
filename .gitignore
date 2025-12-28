@@ -1,0 +1,10 @@
+﻿__pycache__/
+node_modules/
+.env
+.vscode/
+Thumbs.db
+.DS_Store
+credentials/
+token.json
+.venv/
+*.pyc
