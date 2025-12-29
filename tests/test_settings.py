@@ -86,3 +86,5 @@ def test_settings_autosave() -> None:
         settings.set("autosave.enabled", False)
         assert settings.is_autosave_enabled() is False
 
+
+

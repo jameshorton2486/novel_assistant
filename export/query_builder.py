@@ -408,3 +408,5 @@ Generated: {package["generated_at"]}
         package["files"]["manifest"] = str(manifest_path)
         
         return package
+
+

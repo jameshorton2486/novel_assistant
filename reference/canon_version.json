@@ -1,91 +1,179 @@
 {
-  "version": "1.0.0",
-  "last_update": "2024-01-01T00:00:00",
+  "version": "2.0.0",
+  "last_update": "2024-12-28T00:00:00",
   "novel": {
-    "title": "Untitled Circus Novel",
-    "setting_period": "May-June 1954",
-    "setting_location": "California circus circuit (Wallace Brothers Circus)"
+    "title": "The Price of Silence",
+    "setting_period": "1952-1953",
+    "setting_location": "California circus circuit (Clyde Beatty-Cole Bros. Circus)"
   },
   "characters": {
-    "tommy_age": {
-      "value": "19",
+    "tommy_name": {
+      "value": "Tommy Davidson",
       "source_chapter": "Chapter 1",
-      "created": "2024-01-01T00:00:00",
-      "updated": "2024-01-01T00:00:00",
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
+      "history": [
+        {
+          "old_value": "Tommy Russo",
+          "reason": "Canon reconciliation - corrected to current project",
+          "date": "2024-12-28T00:00:00"
+        }
+      ]
+    },
+    "tommy_age": {
+      "value": "17",
+      "source_chapter": "Chapter 1",
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
+      "history": [
+        {
+          "old_value": "19",
+          "reason": "Canon reconciliation - corrected timeline to 1952-1953",
+          "date": "2024-12-28T00:00:00"
+        }
+      ]
+    },
+    "tommy_instrument": {
+      "value": "trombone",
+      "source_chapter": "Chapter 1",
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
+      "history": [
+        {
+          "old_value": "trumpet",
+          "reason": "Canon reconciliation - corrected to current project",
+          "date": "2024-12-28T00:00:00"
+        }
+      ]
+    },
+    "tommy_origin": {
+      "value": "San Antonio, Texas",
+      "source_chapter": "Chapter 1",
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
       "history": []
     },
-    "tommy_role": {
-      "value": "trumpet player",
+    "jenny_name": {
+      "value": "Jenny Morrison",
       "source_chapter": "Chapter 1",
-      "created": "2024-01-01T00:00:00",
-      "updated": "2024-01-01T00:00:00",
-      "history": []
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
+      "history": [
+        {
+          "old_value": "Jenny Carver",
+          "reason": "Canon reconciliation - corrected last name",
+          "date": "2024-12-28T00:00:00"
+        }
+      ]
     },
     "jenny_role": {
       "value": "trapeze artist",
       "source_chapter": "Chapter 1",
-      "created": "2024-01-01T00:00:00",
-      "updated": "2024-01-01T00:00:00",
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
       "history": []
+    },
+    "rafael_name": {
+      "value": "Rafael Santos",
+      "source_chapter": "Chapter 2",
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
+      "history": [
+        {
+          "old_value": "Rafael Navarro",
+          "reason": "Canon reconciliation - corrected last name",
+          "date": "2024-12-28T00:00:00"
+        }
+      ]
     },
     "rafael_role": {
       "value": "rigger",
       "source_chapter": "Chapter 2",
-      "created": "2024-01-01T00:00:00",
-      "updated": "2024-01-01T00:00:00",
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
       "history": []
     },
     "rafael_origin": {
-      "value": "Mexican",
+      "value": "Michoacán, Mexico",
       "source_chapter": "Chapter 2",
-      "created": "2024-01-01T00:00:00",
-      "updated": "2024-01-01T00:00:00",
-      "history": []
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
+      "history": [
+        {
+          "old_value": "Guadalajara, Jalisco",
+          "reason": "Canon reconciliation - corrected origin",
+          "date": "2024-12-28T00:00:00"
+        }
+      ]
     }
   },
   "timeline": {
     "story_start": {
-      "value": "May 1954",
+      "value": "1952",
       "source_chapter": "Chapter 1",
-      "created": "2024-01-01T00:00:00",
-      "updated": "2024-01-01T00:00:00",
-      "history": []
-    },
-    "operation_wetback_start": {
-      "value": "June 17, 1954",
-      "source_chapter": "Historical Context",
-      "created": "2024-01-01T00:00:00",
-      "updated": "2024-01-01T00:00:00",
-      "history": []
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
+      "history": [
+        {
+          "old_value": "May 1954",
+          "reason": "Canon reconciliation - corrected timeline",
+          "date": "2024-12-28T00:00:00"
+        }
+      ]
     },
     "story_end": {
-      "value": "Late June 1954",
+      "value": "1953",
       "source_chapter": "Chapter 10",
-      "created": "2024-01-01T00:00:00",
-      "updated": "2024-01-01T00:00:00",
-      "history": []
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
+      "history": [
+        {
+          "old_value": "Late June 1954",
+          "reason": "Canon reconciliation - corrected timeline",
+          "date": "2024-12-28T00:00:00"
+        }
+      ]
     },
     "epilogue_period": {
-      "value": "1959 (five years later)",
-      "source_chapter": "Chapter 11-12",
-      "created": "2024-01-01T00:00:00",
-      "updated": "2024-01-01T00:00:00",
+      "value": "1965 (civil rights era)",
+      "source_chapter": "Epilogue",
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
+      "history": [
+        {
+          "old_value": "1959 (five years later)",
+          "reason": "Canon reconciliation - corrected to reflect civil rights era reflection",
+          "date": "2024-12-28T00:00:00"
+        }
+      ]
+    },
+    "moral_mirror": {
+      "value": "Jonathan Myrick Daniels (1965 martyr)",
+      "source_chapter": "Epilogue",
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
       "history": []
     }
   },
   "locations": {
     "circus_name": {
-      "value": "Wallace Brothers Circus",
+      "value": "Clyde Beatty-Cole Bros. Circus",
       "source_chapter": "Chapter 1",
-      "created": "2024-01-01T00:00:00",
-      "updated": "2024-01-01T00:00:00",
-      "history": []
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
+      "history": [
+        {
+          "old_value": "Wallace Brothers Circus",
+          "reason": "Canon reconciliation - corrected circus name",
+          "date": "2024-12-28T00:00:00"
+        }
+      ]
     },
     "circuit": {
       "value": "California",
       "source_chapter": "Chapter 1",
-      "created": "2024-01-01T00:00:00",
-      "updated": "2024-01-01T00:00:00",
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
       "history": []
     }
   },
@@ -94,15 +182,15 @@
     "bracero_program": {
       "value": "Active 1942-1964, legal guest worker program",
       "source_chapter": "Historical Context",
-      "created": "2024-01-01T00:00:00",
-      "updated": "2024-01-01T00:00:00",
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
       "history": []
     },
     "operation_wetback": {
       "value": "Mass deportation campaign starting June 1954",
       "source_chapter": "Historical Context",
-      "created": "2024-01-01T00:00:00",
-      "updated": "2024-01-01T00:00:00",
+      "created": "2024-12-28T00:00:00",
+      "updated": "2024-12-28T00:00:00",
       "history": []
     }
   }

@@ -129,7 +129,7 @@ class WritingModeDialog(QDialog):
         self.style_label = QLabel("Style Charter: Active (1950s voice)")
         style_layout.addWidget(self.style_label)
         
-        self.era_label = QLabel("Era Constraints: 1954, California, Circus")
+        self.era_label = QLabel("Era Constraints: 1952-1953, American traveling circus")
         style_layout.addWidget(self.era_label)
         
         self.style_checkbox = QCheckBox("I will prioritize restraint and period accuracy")
@@ -286,4 +286,6 @@ class WritingModeDialog(QDialog):
     def should_stop_on_momentum_fade(self) -> bool:
         """Check if user wants to stop when momentum fades."""
         return self.exit_checkbox.isChecked()
+
+
 

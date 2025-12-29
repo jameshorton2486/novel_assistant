@@ -37,3 +37,5 @@ def test_load_all_specs() -> None:
     for key, value in specs.items():
         assert isinstance(value, str), f"{key} should be a string"
 
+
+

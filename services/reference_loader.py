@@ -149,81 +149,118 @@ This is scaffolding, not story material.
     
     def _load_canon(self) -> str:
         """Load canon reference material."""
-        # Canon lives in reference/
+        # Canon lives in reference/canon/
         content = []
+        canon_dir = self.reference_dir / "canon"
         
         # Core canon files
         core_files = [
-            "master_reference.md",
-            "timeline_master.md",
-            "terminology.md",
-            "consistency_rules.md",
+            "MASTER_CANON.md",
         ]
         
         for filename in core_files:
-            filepath = self.reference_dir / filename
+            filepath = canon_dir / filename
             if filepath.exists():
                 content.append(filepath.read_text(encoding='utf-8'))
         
+        # Timeline
+        timeline_file = canon_dir / "timeline" / "master_timeline.md"
+        if timeline_file.exists():
+            content.append("\n## Timeline\n")
+            content.append(timeline_file.read_text(encoding='utf-8'))
+        
+        # Plot
+        plot_file = canon_dir / "plot" / "chapter_beats.md"
+        if plot_file.exists():
+            content.append("\n## Plot Structure\n")
+            content.append(plot_file.read_text(encoding='utf-8'))
+        
         # Character files
-        chars_dir = self.reference_dir / "characters"
+        chars_dir = canon_dir / "characters"
         if chars_dir.exists():
             content.append("\n## Characters\n")
             content.append(self._load_directory(chars_dir))
         
-        # Location files
-        locs_dir = self.reference_dir / "locations"
-        if locs_dir.exists():
-            content.append("\n## Locations\n")
-            content.append(self._load_directory(locs_dir))
+        # Relationships
+        relationships_file = canon_dir / "relationships" / "relationship_map.md"
+        if relationships_file.exists():
+            content.append("\n## Relationships\n")
+            content.append(relationships_file.read_text(encoding='utf-8'))
         
         return "\n\n".join(content)
     
     def _load_context(self) -> str:
         """Load contextual research material."""
-        context_dir = self.research_dir / "context"
-        if not context_dir.exists():
-            # Also check digests
-            context_dir = self.research_dir / "digests" / "context"
+        # Context lives in reference/context/
+        context_dir = self.reference_dir / "context"
         
-        return self._load_directory(context_dir)
+        # Load master historical context
+        master_context = context_dir / "HISTORICAL_CONTEXT.md"
+        content = []
+        if master_context.exists():
+            content.append(master_context.read_text(encoding='utf-8'))
+        
+        # Load subdirectories
+        subdirs = ["circus_life", "bracero_program", "civil_rights", "social_backdrop"]
+        for subdir in subdirs:
+            subdir_path = context_dir / subdir
+            if subdir_path.exists():
+                content.append(f"\n## {subdir.replace('_', ' ').title()}\n")
+                content.append(self._load_directory(subdir_path))
+        
+        return "\n\n".join(content)
     
     def _load_artifacts(self, artifact_ids: List[str] = None) -> str:
         """Load artifact material, optionally filtered."""
-        artifacts_dir = self.research_dir / "artifacts"
-        if not artifacts_dir.exists():
-            artifacts_dir = self.research_dir / "digests" / "artifact"
+        # Artifacts live in reference/artifacts/
+        artifacts_dir = self.reference_dir / "artifacts"
         
         if not artifacts_dir.exists():
             return ""
         
+        # Load artifact index
+        content = []
+        index_file = artifacts_dir / "ARTIFACT_INDEX.md"
+        if index_file.exists():
+            content.append(index_file.read_text(encoding='utf-8'))
+        
         if artifact_ids:
             # Load specific artifacts
-            content = []
             for aid in artifact_ids:
                 for filepath in artifacts_dir.rglob(f"*{aid}*"):
-                    if filepath.is_file():
+                    if filepath.is_file() and filepath.name != "ARTIFACT_INDEX.md":
                         content.append(filepath.read_text(encoding='utf-8'))
             return "\n\n".join(content)
         else:
-            return self._load_directory(artifacts_dir)
+            # Load postcards and letters directories
+            for subdir in ["postcards", "letters"]:
+                subdir_path = artifacts_dir / subdir
+                if subdir_path.exists():
+                    content.append(self._load_directory(subdir_path))
+            return "\n\n".join(content)
     
     def _load_craft(self) -> str:
         """Load craft guidance material."""
-        # Style charter is primary craft document
+        # Craft lives in reference/craft/
         content = []
+        craft_dir = self.reference_dir / "craft"
         
-        style_charter = self.reference_dir / "style_charter.md"
+        # Style charter is primary craft document
+        style_charter = craft_dir / "STYLE_CHARTER.md"
         if style_charter.exists():
             content.append(style_charter.read_text(encoding='utf-8'))
         
-        # Additional craft material
-        craft_dir = self.research_dir / "craft"
-        if not craft_dir.exists():
-            craft_dir = self.research_dir / "digests" / "craft"
+        # Vocabulary directory
+        vocab_dir = craft_dir / "vocabulary"
+        if vocab_dir.exists():
+            content.append("\n## Vocabulary\n")
+            content.append(self._load_directory(vocab_dir))
         
-        if craft_dir.exists():
-            content.append(self._load_directory(craft_dir))
+        # Scene checklist
+        scene_checklist = craft_dir / "scene_checklist.md"
+        if scene_checklist.exists():
+            content.append("\n## Scene Checklist\n")
+            content.append(scene_checklist.read_text(encoding='utf-8'))
         
         return "\n\n".join(content)
     

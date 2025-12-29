@@ -292,3 +292,5 @@ class DocxExporter:
             "issues": issues,
             "paragraph_count": len(doc.paragraphs)
         }
+
+

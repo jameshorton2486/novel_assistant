@@ -46,7 +46,7 @@ Writing Mode is a **pre-writing confirmation tool** designed to prepare both the
 
 ### 4. Style & Era Guardrails
 - **Style Charter**: Confirms active style guidelines
-- **Era Constraints**: Shows period constraints (1954, California, Circus)
+- **Era Constraints**: Shows period constraints (1952-1953, American traveling circus)
 - **Checkbox**: "I will prioritize restraint and period accuracy"
   - **Required**: Must be checked to proceed
 
@@ -98,60 +98,52 @@ Writing Mode is a **pre-writing confirmation tool** designed to prepare both the
 
 ## Design Intent
 
-This feature exists to **protect focus and discipline**, not to add intelligence. It is:
+Writing Mode exists to create a **moment of intentionality** before writing begins. It serves as:
 
-- **Simple**: Minimal UI, no distractions
-- **Respectful**: Treats the author as a professional
-- **Fast**: Can be completed in 30-60 seconds
-- **Intentional**: Each checkbox represents a commitment
+1. **Canon Protection**: Reminds you to check canon version and commit to staying within established facts
+2. **Research Discipline**: Prevents research rabbit holes by requiring commitment to placeholder marking
+3. **Style Consistency**: Reinforces period accuracy and voice constraints
+4. **Momentum Protection**: Optional exit conditions help prevent over-revision
 
-## When to Use
+## When to Use Writing Mode
 
-Use Writing Mode:
-- **Before starting a writing session**
-- **When switching from editing to drafting**
-- **When you need to refocus on writing**
+**Use Writing Mode:**
+- At the start of each writing session
+- When switching between chapters
+- When returning to writing after a break
+- Before drafting new scenes
 
-Do NOT use Writing Mode:
-- For quick edits
-- For research sessions
-- For review/editing work
+**Do NOT use Writing Mode:**
+- For quick edits or corrections
+- When reviewing/reading only
+- For administrative tasks (file management, etc.)
 
-## Keyboard Shortcut
+## Keyboard Shortcuts
 
 **Ctrl+W** - Opens Writing Mode dialog from anywhere in the application
 
-## Notes
-
-- Writing Mode is **session-based**: It disappears after confirmation
-- No data is saved: It's a confirmation tool, not a tracking system
-- All information is read-only: It displays system state, doesn't modify it
-- Works with or without canon manager: Gracefully handles missing components
-
 ## Troubleshooting
 
-**"Canon Version: [Not available]"**
-- Canon manager may not be initialized
+### "Canon Version: [Not available]"
 - Writing Mode still works, but canon information won't be displayed
+- Check that `reference/canon/MASTER_CANON.md` exists
 
-**"Chapter Status: Unknown"**
-- Chapter may not be tracked in canon system
+### "Active Chapter: [None]"
 - Writing Mode still works for drafting
+- Open or create a chapter to see chapter-specific information
 
-**Required checkboxes not enabling button**
-- All three required checkboxes must be checked:
-  1. Writing within established canon
-  2. Mark placeholders instead of researching
-  3. Prioritize restraint and period accuracy
+### Required Checkboxes Won't Stay Checked
+- This is intentional - you must actively confirm each session
+- Prevents accidental activation
 
-## Future Enhancements (Not Implemented)
+## What Writing Mode Does NOT Do
 
 The following are explicitly NOT part of Writing Mode:
-- Auto-locking chapters
-- AI feedback during writing
-- Automatic enforcement
-- Analytics or tracking
-- Reminders or notifications
+- ❌ AI-powered suggestions
+- ❌ Automatic canon checking
+- ❌ Research lookup tools
+- ❌ Style enforcement
+- ❌ Writing timers or productivity tracking
 
 These would violate the principle of Writing Mode as a **preparation tool**, not an **intelligence layer**.
 
