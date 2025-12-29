@@ -1,173 +1,201 @@
-# Novel Assistant
+# Novel Assistant Writing Studio
 
-An AI-assisted system for writing novels with a Python and PyQt6 interface.
-
-## Overview
-
-The Novel Assistant is designed to help writers create better novels through AI-powered assistance. It provides tools for generating outlines, drafting chapters, improving prose quality, and maintaining consistent voice and style throughout your work.
+A professional AI-powered tool for novel writing, chapter management, and automated review.
 
 ## Features
 
-- **AI-Powered Writing Assistance**: Generate chapters, scenes, and character development
-- **PyQt6 GUI Interface**: Full-featured writing studio with rich text editor
-- **Spec-Based System**: Follows detailed specifications for consistent, high-quality output
-- **Token Efficiency**: Optimized for cost-effective AI interactions
-- **Multiple AI Client Support**: OpenAI and Claude (Anthropic) support
-- **Google Drive Integration**: Save and load chapters directly from Google Drive
+- **Chapter Management**: Upload, create, edit, and organize your novel chapters
+- **Research Organization**: Store and categorize research documents
+- **AI-Powered Review**: Automated chapter review for consistency, prose quality, and historical accuracy
+- **Multi-Model Support**: Claude, GPT-4o, and Gemini integration
+- **Token-Efficient**: Smart reference loading minimizes API costs
+- **Batch Processing**: Review all chapters at once
 
 ## Quick Start
 
-### Prerequisites
-
-- Python 3.8 or higher
-- Virtual environment (recommended)
-- Google Cloud credentials (for Drive integration)
-
-### Installation
+### 1. Install Dependencies
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/jameshorton2486/novel_assistant.git
 cd novel_assistant
-
-# 2. Create and activate virtual environment
-python -m venv .venv
-
-# On Windows:
-.venv\Scripts\activate
-
-# On macOS/Linux:
-source .venv/bin/activate
-
-# 3. Install dependencies
 pip install -r requirements.txt
+```
 
-# 4. Set up environment variables
-# Copy .env.example to .env and add your API keys:
+### 2. Configure API Keys
+
+Copy `.env.example` to `.env` and add at least one API key:
+
+```bash
 copy .env.example .env
-# Then edit .env with your actual keys
-
-# 5. Run the application
-python main.py
+# Edit .env with your API key(s)
 ```
 
-## Configuration
+**Recommended**: Use Claude (ANTHROPIC_API_KEY) for best prose quality.
 
-### Environment Variables
-
-Create a `.env` file with the following:
-
-```env
-OPENAI_API_KEY=your_openai_api_key_here
-ANTHROPIC_API_KEY=your_anthropic_api_key_here
-```
-
-### Google Drive Setup
-
-1. Create a Google Cloud project at https://console.cloud.google.com/
-2. Enable the Google Drive API
-3. Create OAuth 2.0 credentials (Desktop application)
-4. Download `credentials.json` and place it in `credentials/credentials.json`
-5. On first run, you'll be prompted to authorize the app
-
-## Usage
-
-### GUI Interface
-
-Launch the full writing studio:
+### 3. Run the Application
 
 ```bash
 python main.py
 ```
 
-The PyQt6 interface provides:
-- **Chapter sidebar**: Browse and manage your chapters
-- **Rich text editor**: Write and edit your content
-- **AI Generation**: Generate new content with a prompt
-- **AI Revision**: Select text and revise it with instructions
-- **Google Drive sync**: Save and load chapters from the cloud
-
-### Toolbar Actions
-
-| Button | Function |
-|--------|----------|
-| New Chapter | Create a new chapter file |
-| Generate | Generate new text using AI |
-| Revise Selection | Revise selected text with instructions |
-| Save to Drive | Save current chapter to Google Drive |
-| Load from Drive | Refresh chapter list from Google Drive |
-
-## Project Structure
+## Directory Structure
 
 ```
 novel_assistant/
-├── main.py                 # Application entry point
-├── requirements.txt        # Python dependencies
-├── .env.example           # Environment variable template
-├── agent/
-│   ├── __init__.py
-│   ├── agent_core.py      # Core agent functionality
-│   ├── claude_client.py   # Anthropic Claude API wrapper
-│   ├── openai_client.py   # OpenAI API wrapper
-│   ├── drive_client.py    # Google Drive integration
-│   └── spec_loader.py     # Specification file loader
-├── gui/
-│   ├── __init__.py
-│   └── app.py             # PyQt6 GUI application
-├── specs/
-│   ├── NOVEL_ASSISTANT_MASTER_SPEC.md
-│   ├── SYSTEM_PROMPT.md
-│   ├── TOKEN_STRATEGY.md
-│   └── WORKFLOW_PIPELINE.md
-└── credentials/           # (gitignored) Google credentials
-    └── credentials.json
+├── main.py              # Entry point
+├── requirements.txt     # Dependencies
+├── .env                 # API keys (create from .env.example)
+│
+├── models/              # AI model implementations
+│   ├── base_model.py    # Abstract interface
+│   ├── claude_model.py  # Anthropic Claude
+│   ├── openai_model.py  # OpenAI GPT
+│   ├── gemini_model.py  # Google Gemini
+│   └── model_router.py  # Model selection
+│
+├── services/            # Business logic
+│   ├── reference_loader.py  # Token-efficient context loading
+│   └── batch_review.py      # Multi-chapter review
+│
+├── gui/                 # PyQt6 interface
+│   └── writing_studio.py    # Main application window
+│
+├── chapters/            # Your novel chapters (auto-created)
+├── research/            # Research documents (auto-created)
+├── reference/           # Reference files for AI context
+│   ├── master_reference.md
+│   ├── characters/
+│   ├── locations/
+│   ├── timeline/
+│   └── historical/
+└── reviews/             # Review outputs (auto-created)
 ```
 
-## Specifications
+## Usage Guide
 
-The assistant follows detailed specifications for consistent output:
+### Uploading Chapters
 
-- **NOVEL_ASSISTANT_MASTER_SPEC.md**: Core capabilities and voice guidelines
-- **SYSTEM_PROMPT.md**: AI identity and responsibilities
-- **TOKEN_STRATEGY.md**: Efficiency rules for AI interactions
-- **WORKFLOW_PIPELINE.md**: Novel creation workflow phases
+1. Click "Upload" in the Chapters tab
+2. Select your chapter files (.md, .txt, or .docx)
+3. Files are copied to the `chapters/` directory
 
-## AI Clients
+**Naming Convention**: For best results, name files like:
+- `chapter_01_the_beginning.md`
+- `ch2_rising_action.txt`
 
-### OpenAI (Default)
-Uses GPT-4o for text generation and revision. Requires `OPENAI_API_KEY`.
+### Uploading Research
 
-### Claude (Anthropic)
-Alternative client using Claude Sonnet. Requires `ANTHROPIC_API_KEY`.
+1. Click "Upload" in the Research tab
+2. Select a category (characters, locations, historical, etc.)
+3. Select your research files
 
-To switch clients, modify `gui/app.py` to import `ClaudeClient` instead of `OpenAIClient`.
+### Creating Reference Files
 
-## Google Drive Structure
+Reference files help the AI understand your novel's context:
 
-The app creates the following folder structure in your Google Drive:
+1. Go to the Reference tab
+2. Click "Create"
+3. Select a category (characters, locations, historical)
+4. Enter the reference name and content
 
+**Example Character Reference** (`reference/characters/rafael.md`):
+```markdown
+# Rafael Navarro
+
+## Physical Description
+- Age: 28 in 1954
+- Height: 5'10"
+- Build: Lean, muscular from rigging work
+- Distinguishing features: Scar on left forearm, San Martín de Porres medal
+
+## Background
+- Born in Guadalajara, Mexico
+- Entered US through Bracero Program in 1952
+- Works as a rigger for Wallace Brothers Circus
+
+## Personality
+- Reserved, observant
+- Strong moral compass
+- Protective of those he cares about
+- Rarely speaks unless necessary
+
+## Key Relationships
+- Tommy: Complex friendship, eventual rivalry
+- Jenny: Romantic interest, protective
+- Vic: Antagonistic, avoids confrontation
 ```
-NovelAssistant/
-├── Chapters/      # Your chapter files
-├── Notes/         # Story notes
-└── Characters/    # Character profiles
-```
+
+### Running Reviews
+
+**Single Chapter Review**:
+1. Load a chapter by clicking it in the list
+2. Select review type (Full, Consistency, Prose, Historical)
+3. Click "Review This Chapter"
+
+**Batch Review**:
+1. Select review type
+2. Click "Run Batch Review"
+3. Wait for all chapters to process
+4. Results saved to `reviews/` directory
+
+### AI Assistant Prompts
+
+Use the prompt window for questions and revisions:
+
+**Questions**:
+- "Is this dialogue historically accurate for 1954?"
+- "Does this scene maintain tension?"
+- "Are there any anachronisms in this passage?"
+
+**Revision Requests**:
+1. Select text in the editor
+2. Enter instructions like "Make the dialogue more period-appropriate"
+3. Click "Revise Selection"
+4. Review the response, click "Apply to Editor" if satisfied
+
+## Token Conservation Tips
+
+1. **Use Chapter Metadata**: Add YAML headers to chapters specifying which references are needed:
+   ```yaml
+   ---
+   chapter: 4
+   characters: [rafael, tommy, jenny]
+   locations: [bakersfield]
+   historical: [operation_wetback]
+   ---
+   ```
+
+2. **Create Focused References**: Keep character/location refs under 500 words each
+
+3. **Use the Right Model**:
+   - Claude Haiku: Quick consistency checks (~$0.80/M tokens)
+   - Claude Sonnet: Chapter revisions (~$3/M tokens)
+   - Gemini 1.5 Pro: Full manuscript review (~$1.25/M tokens, 1M context)
+
+## Model Comparison
+
+| Model | Best For | Input Cost | Context |
+|-------|----------|------------|---------|
+| Claude Sonnet | Daily work, prose quality | $3/M | 200K |
+| Claude Opus | Complex analysis | $15/M | 200K |
+| Claude Haiku | Quick checks | $0.80/M | 200K |
+| GPT-4o | Alternative to Claude | $2.50/M | 128K |
+| Gemini 1.5 Pro | Full manuscript | $1.25/M | 1M |
 
 ## Troubleshooting
 
-### "Missing OPENAI_API_KEY environment variable"
-Ensure your `.env` file exists and contains a valid API key.
+**"API key not configured"**
+- Ensure your `.env` file exists with at least one API key
+- Restart the application after editing `.env`
 
-### "Missing credentials.json"
-Download OAuth credentials from Google Cloud Console and place in `credentials/credentials.json`.
+**"Could not load chapter"**
+- Check file encoding (UTF-8 required)
+- For .docx files, ensure python-docx is installed
 
-### Google Drive authentication fails
-Delete `token.json` and re-run the app to re-authenticate.
+**Reviews taking too long**
+- Try Claude Haiku for faster (cheaper) reviews
+- Reduce reference file sizes
+- Review fewer chapters at once
 
 ## License
 
-MIT License
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
+MIT License - See LICENSE file for details.

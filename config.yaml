@@ -1,0 +1,34 @@
+# Novel Assistant Configuration
+
+# AI Provider Settings
+ai:
+  provider: "openai"  # Options: "openai" or "claude"
+  openai:
+    model: "gpt-4o"
+    max_tokens: 4000
+  claude:
+    model: "claude-sonnet-4-20250514"
+    max_tokens: 4000
+
+# File Storage Settings
+storage:
+  use_google_drive: true  # Set to false to use only local storage
+  local_chapters_path: "chapters"  # Local folder for chapters
+
+# Auto-save Settings
+autosave:
+  enabled: true
+  interval_seconds: 60  # Auto-save every 60 seconds
+
+# UI Settings
+ui:
+  theme: "light"  # Options: "light" or "dark"
+  word_count_enabled: true
+  show_status_bar: true
+
+# Editor Settings
+editor:
+  font_family: "Consolas"
+  font_size: 12
+  wrap_mode: true
+

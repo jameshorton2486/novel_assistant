@@ -1,0 +1,109 @@
+{
+  "version": "1.0.0",
+  "last_update": "2024-01-01T00:00:00",
+  "novel": {
+    "title": "Untitled Circus Novel",
+    "setting_period": "May-June 1954",
+    "setting_location": "California circus circuit (Wallace Brothers Circus)"
+  },
+  "characters": {
+    "tommy_age": {
+      "value": "19",
+      "source_chapter": "Chapter 1",
+      "created": "2024-01-01T00:00:00",
+      "updated": "2024-01-01T00:00:00",
+      "history": []
+    },
+    "tommy_role": {
+      "value": "trumpet player",
+      "source_chapter": "Chapter 1",
+      "created": "2024-01-01T00:00:00",
+      "updated": "2024-01-01T00:00:00",
+      "history": []
+    },
+    "jenny_role": {
+      "value": "trapeze artist",
+      "source_chapter": "Chapter 1",
+      "created": "2024-01-01T00:00:00",
+      "updated": "2024-01-01T00:00:00",
+      "history": []
+    },
+    "rafael_role": {
+      "value": "rigger",
+      "source_chapter": "Chapter 2",
+      "created": "2024-01-01T00:00:00",
+      "updated": "2024-01-01T00:00:00",
+      "history": []
+    },
+    "rafael_origin": {
+      "value": "Mexican",
+      "source_chapter": "Chapter 2",
+      "created": "2024-01-01T00:00:00",
+      "updated": "2024-01-01T00:00:00",
+      "history": []
+    }
+  },
+  "timeline": {
+    "story_start": {
+      "value": "May 1954",
+      "source_chapter": "Chapter 1",
+      "created": "2024-01-01T00:00:00",
+      "updated": "2024-01-01T00:00:00",
+      "history": []
+    },
+    "operation_wetback_start": {
+      "value": "June 17, 1954",
+      "source_chapter": "Historical Context",
+      "created": "2024-01-01T00:00:00",
+      "updated": "2024-01-01T00:00:00",
+      "history": []
+    },
+    "story_end": {
+      "value": "Late June 1954",
+      "source_chapter": "Chapter 10",
+      "created": "2024-01-01T00:00:00",
+      "updated": "2024-01-01T00:00:00",
+      "history": []
+    },
+    "epilogue_period": {
+      "value": "1959 (five years later)",
+      "source_chapter": "Chapter 11-12",
+      "created": "2024-01-01T00:00:00",
+      "updated": "2024-01-01T00:00:00",
+      "history": []
+    }
+  },
+  "locations": {
+    "circus_name": {
+      "value": "Wallace Brothers Circus",
+      "source_chapter": "Chapter 1",
+      "created": "2024-01-01T00:00:00",
+      "updated": "2024-01-01T00:00:00",
+      "history": []
+    },
+    "circuit": {
+      "value": "California",
+      "source_chapter": "Chapter 1",
+      "created": "2024-01-01T00:00:00",
+      "updated": "2024-01-01T00:00:00",
+      "history": []
+    }
+  },
+  "objects": {},
+  "facts": {
+    "bracero_program": {
+      "value": "Active 1942-1964, legal guest worker program",
+      "source_chapter": "Historical Context",
+      "created": "2024-01-01T00:00:00",
+      "updated": "2024-01-01T00:00:00",
+      "history": []
+    },
+    "operation_wetback": {
+      "value": "Mass deportation campaign starting June 1954",
+      "source_chapter": "Historical Context",
+      "created": "2024-01-01T00:00:00",
+      "updated": "2024-01-01T00:00:00",
+      "history": []
+    }
+  }
+}

@@ -1,6 +1,10 @@
 import os
+import logging
+from typing import Dict, Any
 from anthropic import Anthropic, APIError
 from agent.spec_loader import load_all_specs
+
+logger = logging.getLogger(__name__)
 
 
 class ClaudeClient:
@@ -12,16 +16,18 @@ class ClaudeClient:
     - Outlining / planning
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         api_key = os.getenv("ANTHROPIC_API_KEY")
         if not api_key:
+            logger.error("Missing ANTHROPIC_API_KEY environment variable")
             raise ValueError("Missing ANTHROPIC_API_KEY environment variable.")
 
         self.client = Anthropic(api_key=api_key)
-        self.specs = load_all_specs()
+        self.specs: Dict[str, str] = load_all_specs()
+        logger.info("Claude client initialized")
 
         # Build the core system prompt
-        self.system_prompt = (
+        self.system_prompt: str = (
             self.specs["system_prompt"]
             + "\n\n"
             + self.specs["master_spec"]
@@ -51,8 +57,10 @@ class ClaudeClient:
             return "[No response from Claude]"
 
         except APIError as e:
+            logger.error(f"Claude API error: {e}")
             return f"[Claude API error: {str(e)}]"
         except Exception as e:
+            logger.error(f"Unexpected error in Claude client: {e}")
             return f"[Unexpected error: {str(e)}]"
 
     # ------------------------------------------------

@@ -1,12 +1,31 @@
 """
-Novel Assistant GUI Module
+GUI Module
+==========
 
-Contains the PyQt6-based writing studio interface.
+PyQt6 interfaces for Novel Assistant.
+
+Requires: pip install PyQt6
 """
 
-from gui.app import WritingStudio, run_gui
+try:
+    from .research_intake import (
+        ResearchIntakeWindow,
+        launch_intake_gui,
+        cli_intake
+    )
+    GUI_AVAILABLE = True
+except ImportError:
+    GUI_AVAILABLE = False
+    
+    def launch_intake_gui(*args, **kwargs):
+        print("PyQt6 not installed. Run: pip install PyQt6")
+        return None
+    
+    def cli_intake(*args, **kwargs):
+        print("CLI intake mode.")
 
 __all__ = [
-    "WritingStudio",
-    "run_gui",
+    'launch_intake_gui',
+    'cli_intake',
+    'GUI_AVAILABLE'
 ]

@@ -1,10 +1,14 @@
 import os
 import io
+import logging
+from typing import Optional, List, Any
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseUpload, MediaIoBaseDownload
+
+logger = logging.getLogger(__name__)
 
 
 # ----------------------------------------------------------
@@ -30,38 +34,42 @@ class DriveClient:
             Characters/
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.service = self.authenticate()
-        self.root_folder_id = self.get_or_create_folder("NovelAssistant")
-        self.chapters_folder = self.get_or_create_subfolder(self.root_folder_id, "Chapters")
-        self.notes_folder = self.get_or_create_subfolder(self.root_folder_id, "Notes")
-        self.characters_folder = self.get_or_create_subfolder(self.root_folder_id, "Characters")
+        self.root_folder_id: str = self.get_or_create_folder("NovelAssistant")
+        self.chapters_folder: str = self.get_or_create_subfolder(self.root_folder_id, "Chapters")
+        self.notes_folder: str = self.get_or_create_subfolder(self.root_folder_id, "Notes")
+        self.characters_folder: str = self.get_or_create_subfolder(self.root_folder_id, "Characters")
+        logger.info("Drive client initialized")
 
     # ------------------------------------------------------
     # AUTHENTICATION
     # ------------------------------------------------------
-    def authenticate(self):
+    def authenticate(self) -> Any:
         """
         Handles OAuth login flow.
         Creates token.json after first login.
         """
-
-        creds = None
+        creds: Optional[Credentials] = None
 
         # Load cached token
         if os.path.exists(TOKEN_PATH):
             creds = Credentials.from_authorized_user_file(TOKEN_PATH, SCOPES)
+            logger.debug("Loaded cached credentials")
 
         # Refresh or create new token
         if not creds or not creds.valid:
             if creds and creds.expired and creds.refresh_token:
+                logger.info("Refreshing expired credentials")
                 creds.refresh(Request())
             else:
                 if not os.path.exists(CREDENTIALS_PATH):
+                    logger.error("Missing credentials.json file")
                     raise FileNotFoundError(
                         "Missing credentials.json in /credentials folder."
                     )
 
+                logger.info("Starting OAuth flow")
                 flow = InstalledAppFlow.from_client_secrets_file(
                     CREDENTIALS_PATH, SCOPES
                 )
@@ -70,13 +78,14 @@ class DriveClient:
             # Save token
             with open(TOKEN_PATH, "w") as token:
                 token.write(creds.to_json())
+            logger.info("Saved credentials token")
 
         return build("drive", "v3", credentials=creds)
 
     # ------------------------------------------------------
     # FOLDER HELPERS
     # ------------------------------------------------------
-    def get_or_create_folder(self, folder_name):
+    def get_or_create_folder(self, folder_name: str) -> str:
         """
         Returns the folder ID, or creates it if missing.
         """
@@ -92,9 +101,11 @@ class DriveClient:
         items = results.get("files", [])
 
         if items:
+            logger.debug(f"Found existing folder: {folder_name}")
             return items[0]["id"]
 
         # Create folder
+        logger.info(f"Creating folder: {folder_name}")
         file_metadata = {
             "name": folder_name,
             "mimeType": "application/vnd.google-apps.folder",
@@ -103,7 +114,7 @@ class DriveClient:
         folder = self.service.files().create(body=file_metadata, fields="id").execute()
         return folder["id"]
 
-    def get_or_create_subfolder(self, parent_id, subfolder_name):
+    def get_or_create_subfolder(self, parent_id: str, subfolder_name: str) -> str:
         """
         Creates subfolders inside NovelAssistant folder.
         """
@@ -123,9 +134,11 @@ class DriveClient:
         items = results.get("files", [])
 
         if items:
+            logger.debug(f"Found existing subfolder: {subfolder_name}")
             return items[0]["id"]
 
         # Create subfolder
+        logger.info(f"Creating subfolder: {subfolder_name}")
         metadata = {
             "name": subfolder_name,
             "mimeType": "application/vnd.google-apps.folder",
@@ -138,7 +151,7 @@ class DriveClient:
     # ------------------------------------------------------
     # FILE OPERATIONS
     # ------------------------------------------------------
-    def save_text_file(self, folder_id, filename, text):
+    def save_text_file(self, folder_id: str, filename: str, text: str) -> bool:
         """
         Saves a plain text file to Google Drive.
         """
@@ -156,26 +169,30 @@ class DriveClient:
 
         if file_id:
             # Update
+            logger.debug(f"Updating file: {filename}")
             self.service.files().update(
                 fileId=file_id, body=file_metadata, media_body=media
             ).execute()
         else:
             # Create new
+            logger.info(f"Creating new file: {filename}")
             self.service.files().create(
                 body=file_metadata, media_body=media
             ).execute()
 
         return True
 
-    def load_text_file(self, folder_id, filename):
+    def load_text_file(self, folder_id: str, filename: str) -> Optional[str]:
         """
         Loads and returns a text file from Google Drive.
         """
 
         file_id = self.find_file_in_folder(folder_id, filename)
         if not file_id:
+            logger.warning(f"File not found: {filename}")
             return None
 
+        logger.debug(f"Loading file: {filename}")
         request = self.service.files().get_media(fileId=file_id)
         stream = io.BytesIO()
         downloader = MediaIoBaseDownload(stream, request)
@@ -186,7 +203,7 @@ class DriveClient:
 
         return stream.getvalue().decode("utf-8")
 
-    def list_files(self, folder_id):
+    def list_files(self, folder_id: str) -> List[str]:
         """
         Returns a list of filenames inside a folder.
         """
@@ -201,7 +218,7 @@ class DriveClient:
 
         return [file["name"] for file in results.get("files", [])]
 
-    def find_file_in_folder(self, folder_id, filename):
+    def find_file_in_folder(self, folder_id: str, filename: str) -> Optional[str]:
         """
         Returns file ID if the file exists.
         """

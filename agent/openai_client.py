@@ -1,6 +1,11 @@
 import os
+import logging
+from typing import Dict, Any
 from openai import OpenAI, APIError
 from agent.spec_loader import load_all_specs
+
+logger = logging.getLogger(__name__)
+
 
 class OpenAIClient:
     """
@@ -11,16 +16,18 @@ class OpenAIClient:
     - Outlining / planning
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         api_key = os.getenv("OPENAI_API_KEY")
         if not api_key:
+            logger.error("Missing OPENAI_API_KEY environment variable")
             raise ValueError("Missing OPENAI_API_KEY environment variable.")
 
         self.client = OpenAI(api_key=api_key)
-        self.specs = load_all_specs()
+        self.specs: Dict[str, str] = load_all_specs()
+        logger.info("OpenAI client initialized")
 
         # Build the core system prompt
-        self.system_prompt = (
+        self.system_prompt: str = (
             self.specs["system_prompt"]
             + "\n\n"
             + self.specs["master_spec"]
@@ -40,7 +47,7 @@ class OpenAIClient:
                     {"role": "system", "content": self.system_prompt},
                     {"role": "user", "content": user_prompt}
                 ],
-                max_tokens=1000
+                max_tokens=4000  # ~3000 words
             )
 
             if response.choices:
@@ -49,6 +56,7 @@ class OpenAIClient:
             return "[No response from OpenAI]"
 
         except Exception as e:
+            logger.error(f"OpenAI API error: {e}")
             return f"[OpenAI API error: {str(e)}]"
 
     # ------------------------------------------------

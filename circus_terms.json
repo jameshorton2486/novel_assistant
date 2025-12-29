@@ -1,0 +1,395 @@
+{
+  "metadata": {
+    "title": "Technical Circus Lexicon",
+    "source": "Circus Lingo by Joe McKennon",
+    "novel_setting": "Wallace Brothers Circus, 1954",
+    "version": "1.0",
+    "last_updated": "2025-12-28"
+  },
+  "categories": {
+    "logistics_movement": {
+      "description": "Terms for circus travel and setup operations",
+      "terms": {
+        "jump": {
+          "definition": "The move between towns",
+          "usage": "noun",
+          "example": "The jump to Bakersfield was over two hundred miles.",
+          "replaces": ["move to next town", "travel", "trip between cities"]
+        },
+        "haul": {
+          "definition": "The move from circus train to show lot",
+          "usage": "noun",
+          "example": "The haul took three hours in the morning heat.",
+          "replaces": ["unloading", "transport from train", "move to the grounds"]
+        },
+        "spotted": {
+          "definition": "Positioned (wagons, equipment) in designated locations",
+          "usage": "verb (past tense)",
+          "example": "The boss hostler spotted the cookhouse wagon first.",
+          "replaces": ["positioned", "placed", "set up", "parked"]
+        },
+        "dukey_run": {
+          "definition": "Any unusually long distance",
+          "usage": "noun phrase",
+          "example": "It was a dukey run from the sleeper cars to the cookhouse.",
+          "replaces": ["long walk", "far distance", "long way"]
+        },
+        "one_day_stand": {
+          "definition": "A town where circus plays for single day",
+          "usage": "noun phrase",
+          "example": "Fresno was just a one day stand.",
+          "replaces": ["single day engagement", "one-night stop"]
+        },
+        "wildcatting": {
+          "definition": "Suddenly changing planned route to play unplanned towns",
+          "usage": "verb/noun",
+          "example": "The polio scare had them wildcatting through the valley.",
+          "replaces": ["changing route", "improvising the schedule"]
+        },
+        "date": {
+          "definition": "A show's engagement in a town",
+          "usage": "noun",
+          "example": "The Bakersfield date was always a good one.",
+          "replaces": ["engagement", "stop", "booking", "show"]
+        },
+        "gas": {
+          "definition": "Trucks and tractors (originally contemptuous, accepted by 1954)",
+          "usage": "noun (collective)",
+          "example": "The gas had replaced horses entirely by then.",
+          "replaces": ["trucks", "vehicles", "motorized equipment"],
+          "historical_note": "Term of contempt in 1920s, accepted by late 1930s"
+        }
+      }
+    },
+    "spatial_geography": {
+      "description": "Terms for locations within the circus grounds",
+      "terms": {
+        "back_yard": {
+          "definition": "Off-limits area containing dressing rooms, padrooms, wardrobe, doctor's wagon",
+          "usage": "noun",
+          "example": "Tommy wasn't allowed in the back yard yet.",
+          "replaces": ["performers' area", "backstage", "private area", "restricted zone"],
+          "access": "Performers, staff only - NOT public"
+        },
+        "padroom": {
+          "definition": "Ring stock tent where performing horses are kept",
+          "usage": "noun",
+          "example": "Jenny checked on her horse in the padroom.",
+          "replaces": ["horse tent", "stable area", "animal tent"]
+        },
+        "clown_alley": {
+          "definition": "Area just outside back door of big top for clown props",
+          "usage": "noun",
+          "example": "The clowns waited in clown alley for their cue.",
+          "replaces": ["clown area", "prop storage", "clown staging area"]
+        },
+        "the_wagon": {
+          "definition": "The circus office wagon (also called Red Wagon)",
+          "usage": "noun",
+          "example": "Pay was handled at the wagon every Saturday.",
+          "replaces": ["the office", "office wagon", "administration"],
+          "note": "NEVER called 'the office' - always 'the wagon'"
+        },
+        "big_top": {
+          "definition": "The main performance tent",
+          "usage": "noun",
+          "example": "The big top could seat three thousand.",
+          "replaces": ["main tent", "circus tent", "the tent"]
+        },
+        "blues": {
+          "definition": "General admission seating (uncomfortable board benches)",
+          "usage": "noun (plural)",
+          "example": "The towners packed the blues for the matinee.",
+          "replaces": ["cheap seats", "general admission", "bench seats"]
+        },
+        "star_bucks": {
+          "definition": "Reserved grandstand seats with folding backs, stenciled with star",
+          "usage": "noun (plural)",
+          "example": "The star bucks were already sold out.",
+          "replaces": ["reserved seats", "good seats", "premium seats"]
+        },
+        "quarter_poles": {
+          "definition": "Intermediate poles between side poles and center poles",
+          "usage": "noun (plural)",
+          "example": "Rafael checked each quarter pole before the show.",
+          "replaces": ["support poles", "intermediate poles"]
+        },
+        "ring_curbs": {
+          "definition": "The wooden rings defining performance area (42-foot diameter)",
+          "usage": "noun (plural)",
+          "example": "The liberty horses circled inside the ring curbs.",
+          "replaces": ["ring", "performance ring", "circus ring"]
+        }
+      }
+    },
+    "personnel_titles": {
+      "description": "Job titles and roles within circus hierarchy",
+      "terms": {
+        "equestrian_director": {
+          "definition": "Man in charge of performance, blows whistle for act changes",
+          "usage": "noun",
+          "example": "The equestrian director's whistle cut through the noise.",
+          "replaces": ["ring master", "show manager", "performance director"],
+          "note": "NOT ring master on large shows - ring master only on small one-ring shows"
+        },
+        "boss_hostler": {
+          "definition": "Man in charge of all baggage/work horses, positions all wagons",
+          "usage": "noun",
+          "example": "The boss hostler was first on the lot, last to leave.",
+          "replaces": ["horse boss", "wagon master", "lot manager"],
+          "status": "High authority - 'King of the Lot'"
+        },
+        "candy_butcher": {
+          "definition": "Concession salesman who sells on circus seats",
+          "usage": "noun",
+          "example": "The candy butchers worked the blues during intermission.",
+          "replaces": ["vendor", "concession seller", "salesman"]
+        },
+        "bally_broad": {
+          "definition": "Woman who dances in spectacles, works aerial ballet",
+          "usage": "noun",
+          "example": "Jenny had started as a bally broad before her solo act.",
+          "replaces": ["showgirl", "dancer", "chorus girl"],
+          "also": "bally_girl"
+        },
+        "kid_worker": {
+          "definition": "Man who hires local boys to work for passes",
+          "usage": "noun",
+          "example": "The kid worker had twenty boys hauling water.",
+          "replaces": ["youth coordinator", "boy manager"],
+          "note": "Boys did NOT water elephants - that's a myth"
+        },
+        "trouper": {
+          "definition": "Person with at least one full season on a traveling show",
+          "usage": "noun",
+          "example": "After that season, Tommy was a real trouper.",
+          "replaces": ["circus veteran", "experienced performer", "old hand"]
+        },
+        "first_of_may": {
+          "definition": "Rookie, new worker in their first season",
+          "usage": "noun",
+          "example": "The first-of-mays always made the same mistakes.",
+          "replaces": ["rookie", "newbie", "new guy", "beginner"],
+          "note": "Season traditionally started May 1st"
+        },
+        "towner": {
+          "definition": "Local person, not with the circus",
+          "usage": "noun",
+          "example": "The towners lined up before the gates opened.",
+          "replaces": ["local", "townsperson", "civilian", "outsider"],
+          "connotation": "Mild disdain/condescension implied"
+        },
+        "native": {
+          "definition": "Local person (interchangeable with towner)",
+          "usage": "noun",
+          "example": "The natives didn't understand circus ways.",
+          "replaces": ["local", "resident"],
+          "connotation": "Slightly more condescending than 'towner'"
+        },
+        "trailer": {
+          "definition": "Person following show without being on payroll",
+          "usage": "noun",
+          "example": "During hard times, good men trailered waiting for openings.",
+          "replaces": ["follower", "hanger-on", "job seeker"]
+        }
+      }
+    },
+    "performance_terms": {
+      "description": "Terms related to shows and acts",
+      "terms": {
+        "house": {
+          "definition": "The crowd inside the tent for a performance",
+          "usage": "noun",
+          "example": "The evening house was twice the size of the matinee.",
+          "replaces": ["crowd", "audience", "spectators"]
+        },
+        "mechanic": {
+          "definition": "Safety belt/harness worn during training or dangerous tricks",
+          "usage": "noun",
+          "example": "Jenny practiced the new trick with a mechanic.",
+          "replaces": ["safety harness", "safety belt", "harness"]
+        },
+        "lunge_rope": {
+          "definition": "Safety rope held by person on ground, through pulley to performer",
+          "usage": "noun",
+          "example": "Rafael held the lunge rope while she practiced.",
+          "replaces": ["safety rope", "safety line", "catch rope"]
+        },
+        "liberty_horses": {
+          "definition": "Horses performing complex drills without reins",
+          "usage": "noun (plural)",
+          "example": "The liberty horses moved as one at the trainer's command.",
+          "replaces": ["trained horses", "performing horses"],
+          "note": "Standard acts used 8 or 12 horses"
+        },
+        "iron_jaw": {
+          "definition": "Aerial act where performer hangs by mouthpiece in teeth",
+          "usage": "noun",
+          "example": "Her iron jaw act was the most dangerous on the show.",
+          "replaces": ["dental hang", "teeth act", "mouth suspension"]
+        },
+        "john_robinson": {
+          "definition": "A significantly shortened performance",
+          "usage": "noun/verb",
+          "example": "The storm warning meant they gave a John Robinson.",
+          "replaces": ["shortened show", "abbreviated performance"],
+          "trigger": "Bad weather, late arrival, long jump ahead"
+        },
+        "straw_house": {
+          "definition": "Overflow crowd sitting on straw in front of seats",
+          "usage": "noun",
+          "example": "The Fourth of July was always a straw house.",
+          "replaces": ["overflow crowd", "packed house", "standing room"]
+        },
+        "sell_out": {
+          "definition": "Every available seat sold",
+          "usage": "noun/verb",
+          "example": "The sell out meant nothing to the candy butchers working the blues.",
+          "replaces": ["sold out show", "capacity crowd"],
+          "note": "Not same as 'turn away' - may still have empty spaces"
+        },
+        "after_show": {
+          "definition": "Extra-pay performance after regular show",
+          "usage": "noun",
+          "example": "The after show featured a wild west exhibition.",
+          "replaces": ["encore", "second show", "extra performance"],
+          "also": "concert"
+        },
+        "spec": {
+          "definition": "Spectacle - grand parade/production number",
+          "usage": "noun",
+          "example": "The opening spec used every performer on the show.",
+          "replaces": ["parade", "production number", "grand entry"],
+          "also": "spectacle"
+        }
+      }
+    },
+    "show_quality": {
+      "description": "Terms describing circus operations quality/ethics",
+      "terms": {
+        "sunday_school_show": {
+          "definition": "Clean circus with no crooked games or illicit activity",
+          "usage": "noun",
+          "example": "Wallace Brothers ran a Sunday school show.",
+          "replaces": ["clean show", "honest operation", "family circus"]
+        },
+        "fireball_outfit": {
+          "definition": "Crooked show that scams towns, making future shows impossible",
+          "usage": "noun",
+          "example": "A fireball outfit had burned the town the year before.",
+          "replaces": ["crooked show", "scam circus", "dishonest operation"],
+          "consequence": "Towns 'burned up' for legitimate shows"
+        },
+        "flea_bag": {
+          "definition": "Ragged, dirty show (not necessarily crooked)",
+          "usage": "noun",
+          "example": "Bad weather had turned them into a flea bag by September.",
+          "replaces": ["run-down show", "shabby circus"]
+        },
+        "fold": {
+          "definition": "Close before end of regular season",
+          "usage": "verb",
+          "example": "Three shows folded that summer.",
+          "replaces": ["close", "shut down", "go out of business"]
+        }
+      }
+    },
+    "money_transactions": {
+      "description": "Financial and business terms",
+      "terms": {
+        "ace_note": {
+          "definition": "One dollar bill",
+          "usage": "noun",
+          "example": "He didn't have an ace note to his name.",
+          "replaces": ["dollar", "buck", "one dollar bill"]
+        },
+        "take": {
+          "definition": "Cash from performance or concession",
+          "usage": "noun",
+          "example": "The take from the evening house was twice the matinee.",
+          "replaces": ["revenue", "earnings", "receipts", "money made"]
+        },
+        "privilege": {
+          "definition": "Right to place/operate a concession",
+          "usage": "noun",
+          "example": "He bought the privilege for the balloon stand.",
+          "replaces": ["concession rights", "selling rights", "license"]
+        },
+        "shill": {
+          "definition": "Employee pretending to be customer to entice others",
+          "usage": "noun/verb",
+          "example": "The shills broke the crowd toward the ticket boxes.",
+          "replaces": ["plant", "fake customer", "decoy"]
+        },
+        "the_x": {
+          "definition": "Exclusive right to sell specific item on grounds",
+          "usage": "noun",
+          "example": "He had the X on cotton candy for the whole midway.",
+          "replaces": ["exclusive rights", "monopoly"]
+        },
+        "nut": {
+          "definition": "Operating costs that must be covered before profit",
+          "usage": "noun",
+          "example": "The nut for the Bakersfield date was four thousand.",
+          "replaces": ["overhead", "costs", "expenses", "break-even point"]
+        }
+      }
+    },
+    "rigging_equipment": {
+      "description": "Technical equipment terms (especially for Rafael's expertise)",
+      "terms": {
+        "spanish_web": {
+          "definition": "Aerial rope apparatus for spinning/climbing acts",
+          "usage": "noun",
+          "example": "Jenny's Spanish web act was the highlight of the show.",
+          "replaces": ["aerial rope", "rope apparatus"]
+        },
+        "web": {
+          "definition": "General term for aerial rope/apparatus",
+          "usage": "noun",
+          "example": "Rafael inspected every web before the show.",
+          "replaces": ["rope", "aerial equipment"]
+        },
+        "rigging": {
+          "definition": "All overhead apparatus, ropes, and mounting hardware",
+          "usage": "noun",
+          "example": "The rigging had to be checked twice daily.",
+          "replaces": ["equipment", "overhead setup", "apparatus"]
+        },
+        "block": {
+          "definition": "Pulley system for aerial rigging",
+          "usage": "noun",
+          "example": "The block needed greasing before the evening show.",
+          "replaces": ["pulley", "pulley system"]
+        }
+      }
+    }
+  },
+  "substitution_patterns": {
+    "description": "Quick reference for common replacements",
+    "patterns": [
+      {"generic": "the tent", "authentic": "the big top"},
+      {"generic": "the crowd", "authentic": "the house"},
+      {"generic": "the audience", "authentic": "the house"},
+      {"generic": "backstage", "authentic": "the back yard"},
+      {"generic": "performers' area", "authentic": "the back yard"},
+      {"generic": "the office", "authentic": "the wagon"},
+      {"generic": "move to next town", "authentic": "the jump"},
+      {"generic": "unloading from train", "authentic": "the haul"},
+      {"generic": "positioned the wagon", "authentic": "spotted the wagon"},
+      {"generic": "ring master", "authentic": "equestrian director"},
+      {"generic": "new worker", "authentic": "first-of-may"},
+      {"generic": "rookie", "authentic": "first-of-may"},
+      {"generic": "local people", "authentic": "towners"},
+      {"generic": "locals", "authentic": "towners"},
+      {"generic": "safety harness", "authentic": "mechanic"},
+      {"generic": "safety rope", "authentic": "lunge rope"},
+      {"generic": "cheap seats", "authentic": "the blues"},
+      {"generic": "reserved seats", "authentic": "star bucks"},
+      {"generic": "vendor", "authentic": "candy butcher"},
+      {"generic": "sold out", "authentic": "sell out"},
+      {"generic": "shortened show", "authentic": "John Robinson"},
+      {"generic": "close/shut down", "authentic": "fold"}
+    ]
+  }
+}
