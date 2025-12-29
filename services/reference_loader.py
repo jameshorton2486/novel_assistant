@@ -250,6 +250,17 @@ This is scaffolding, not story material.
         if style_charter.exists():
             content.append(style_charter.read_text(encoding='utf-8'))
         
+        # POV governance files (critical for review)
+        pov_guardrails = craft_dir / "POV_GUARDRAILS.md"
+        if pov_guardrails.exists():
+            content.append("\n## POV Guardrails\n")
+            content.append(pov_guardrails.read_text(encoding='utf-8'))
+        
+        pov_bleed_rules = craft_dir / "POV_BLEED_RULES.md"
+        if pov_bleed_rules.exists():
+            content.append("\n## POV Bleed Rules\n")
+            content.append(pov_bleed_rules.read_text(encoding='utf-8'))
+        
         # Vocabulary directory
         vocab_dir = craft_dir / "vocabulary"
         if vocab_dir.exists():
